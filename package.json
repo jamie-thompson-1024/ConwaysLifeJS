@@ -1,0 +1,26 @@
+{
+  "name": "conwaylifejs",
+  "version": "1.0.0",
+  "description": "JavaScript / Typescript module implimenting Conways game of life.",
+  "main": "dist/conwaylife.js",
+  "scripts": {
+    "test": "npx jasmine-browser-runner runSpecs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamie-thompson-1024/ConwayLifeJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamie-thompson-1024/ConwayLifeJS/issues"
+  },
+  "homepage": "https://github.com/jamie-thompson-1024/ConwayLifeJS#readme",
+  "devDependencies": {
+    "jasmine-browser-runner": "^1.0.0",
+    "jasmine-core": "^4.0.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.5"
+  }
+}
