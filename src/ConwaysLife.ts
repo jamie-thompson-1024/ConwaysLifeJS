@@ -11,6 +11,8 @@ class ConwaysLife
     private _initialGrid: boolean[][] = [];
     private _age: number = 0;
     private _loopInterval?: number | NodeJS.Timer;
+    private _lastTickTime: number = performance.now();
+    private _lastTickDuration: number = 0;
     onTick: () => void = () => {};
 
     constructor(options: Options)
@@ -38,6 +40,7 @@ class ConwaysLife
     get edgeMode() { return this._edgeMode; }
     get initialGrid() { return this._initialGrid; }
     get age() { return this._age; }
+    get lastTickDuration() { return this._lastTickDuration; }
 
     run()
     {
@@ -230,6 +233,9 @@ class ConwaysLife
 
     private _tick()
     {
+        this._lastTickDuration = performance.now() - this._lastTickTime;
+        this._lastTickTime = performance.now();
+
         this._age++;
 
         let newGrid: boolean[][] = [];

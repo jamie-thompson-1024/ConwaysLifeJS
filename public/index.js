@@ -1,8 +1,9 @@
 
 const life = new ConwaysLife({
     edgeMode: 'filled',
-    height: 50,
-    width: 50
+    height: 250,
+    width: 250,
+    tickDelay: 100,
 });
 console.log(life);
 
