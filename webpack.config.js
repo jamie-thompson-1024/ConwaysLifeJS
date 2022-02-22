@@ -1,6 +1,7 @@
+const path= require('path');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/ConwaysLife.ts',
   module: {
     rules: [
       {
@@ -13,10 +14,14 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
+  target: 'web',
   output: {
-    filename: 'conwaylife.js',
-    library: 'conwaylife',
+    filename: 'conwayslife.js',
+    library: 'ConwaysLife',
     libraryTarget: 'umd',
-    path: './dist',
+    libraryExport: 'default',
+    globalObject: 'this',
+    umdNamedDefine: true,
+    path: path.resolve(__dirname, 'dist'),
   },
 };
