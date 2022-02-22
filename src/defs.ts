@@ -1,5 +1,7 @@
 
-type EdgeMode = 'wrap' | 'empty' | 'filled';
+type EdgeMode = /*'wrap' |*/ 'empty' | 'filled';
+
+type OptionKey = 'width' | 'height' | 'tickDelay' | 'edgeMode';
 
 interface Options
 {
@@ -10,5 +12,5 @@ interface Options
 };
 
 export type { 
-    Options, EdgeMode 
+    Options, OptionKey, EdgeMode 
 };
