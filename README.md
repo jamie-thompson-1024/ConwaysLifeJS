@@ -1,4 +1,4 @@
-# ConwayLifeJS
+# ConwaysLifeJS
 
 JavaScript / Typescript module implimenting Conways game of life.
 
@@ -18,7 +18,7 @@ the simulation behave.
 **Basic usage goes as follows:**
 
 ```javascript
-let life = new ConwayLife();
+let life = new ConwaysLife();
 
 life.onTick = () => {
     // put code here that will run after every simulation tick i.e. a draw call if the results are being rendered to screen
@@ -32,7 +32,7 @@ life.run();
 like so:**
 
 ```javascript
-let life = new ConwayLife({
+let life = new ConwaysLife({
     width: 100,         // width of game grid
     height: 100,        // height of game grid
     tickDelay: 500      // time delay between ticks in milliseconds
@@ -50,7 +50,7 @@ life.run();
 manually like this:**
 
 ```javascript
-let life = new ConwayLife();
+let life = new ConwaysLife();
 
 life.onTick = () => {
     // put code here that will run after every simulation tick i.e. a draw call if the results are being rendered to screen
@@ -72,11 +72,11 @@ for running the simulation, but there are more available that are listed here:
 - `.pause()`: halts simulation
 - `.reset()`: resets simulation grid
 - `.step()`: runs single simulation step
-- `.place(structure: boolean[][], x: number, y: number)`: places a structure onto the simulation grid
+- `.place(structure: boolean[][], col: number, row: number)`: places a structure onto the simulation grid
 - `.setInitial()`: sets starting grid state to current grid state
 - `.resetInitial()`: resets the starting grid state to blank
 - `.setOptions(options: Options)`: modifies options based on given object
-- `.setOption(option: string, value: any)`: sets an option to given value
+- `.setOption(option: OptionKey, value: any)`: sets an option to given value
 
 ## Properties
 
@@ -86,7 +86,7 @@ Game state and options can be read via these properties:
 - `.width`: type `number` readonly. grid width
 - `.height`: type `number` readonly. grid height
 - `.tickDelay`: type `number` readonly. tick delay
-- `.edgeMode`: type `EdgeMode` | `'wrap' | 'empty' | 'filled'` readonly. edge behaviour
+- `.edgeMode`: type `EdgeMode` | `'empty' | 'filled'` readonly. edge behaviour
 - `.initialGrid`: type `boolean[][]` readonly. starting grid state
 - `.age`: type `number` readonly. ticks made since last reset
 - `.onTick`: type `() => void`. function called after game tick
@@ -98,4 +98,4 @@ These are the options available that change how the simulation behaves:
 - `width`: type `number`. width of simulation grid. must be larger than 0, non-int values will be floored. **default: `100`**
 - `height`: type `number`. height of simulation grid. must be larger than 0, non-int values will be floored. **default: `100`**
 - `tickDelay`: type `number`. set time delay between ticks when running simulation. must be positive. **default: `500`**
-- `edgeMode`: type `EdgeMode` | `'wrap' | 'empty' | 'filled'`. set how the edge of the simulation behaves. **default: `'empty'`**
+- `edgeMode`: type `EdgeMode` | `'empty' | 'filled'`. set how the edge of the simulation behaves. **default: `'empty'`**
