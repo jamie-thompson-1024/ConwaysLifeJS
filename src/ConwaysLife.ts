@@ -10,7 +10,7 @@ class ConwaysLife
     private _edgeMode: EdgeMode = 'empty';
     private _initialGrid: boolean[][] = [];
     private _age: number = 0;
-    private _loopInterval?: number;
+    private _loopInterval?: number | NodeJS.Timer;
     onTick: () => void = () => {};
 
     constructor(options: Options)
@@ -41,14 +41,16 @@ class ConwaysLife
 
     run()
     {
-        this._loopInterval = window.setInterval(() => {
+        // @ts-ignore
+        this._loopInterval = setInterval(() => {
             this._tick();
         }, this._tickDelay);
     }
 
     pause()
     {
-        window.clearInterval(this._loopInterval);
+        // @ts-ignore
+        clearInterval(this._loopInterval);
     }
 
     reset()
@@ -123,10 +125,12 @@ class ConwaysLife
             this._tickDelay = Math.floor(options.tickDelay);
 
             // reset interval
-            this._loopInterval = window.setInterval(() => {
+            // @ts-ignore
+            this._loopInterval = setInterval(() => {
                 this._tick();
             }, this._tickDelay);
-            window.clearInterval(this._loopInterval);
+            // @ts-ignore
+            clearInterval(this._loopInterval);
         }
 
         this._edgeMode = options.edgeMode ?? this._edgeMode;
@@ -164,10 +168,12 @@ class ConwaysLife
                     this._tickDelay = Math.floor(value);
 
                     // reset interval
-                    this._loopInterval = window.setInterval(() => {
+                    // @ts-ignore
+                    this._loopInterval = setInterval(() => {
                         this._tick();
                     }, this._tickDelay);
-                    window.clearInterval(this._loopInterval);
+                    // @ts-ignore
+                    clearInterval(this._loopInterval);
                 }
                 break;
         }

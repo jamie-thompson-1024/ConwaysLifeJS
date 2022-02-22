@@ -1,6 +1,6 @@
-const path= require('path');
+const path = require('path');
 
-module.exports = {
+const general = {
   entry: './src/ConwaysLife.ts',
   module: {
     rules: [
@@ -14,6 +14,9 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
+}
+
+const browser = {
   target: 'web',
   output: {
     filename: 'conwayslife.js',
@@ -22,6 +25,23 @@ module.exports = {
     libraryExport: 'default',
     globalObject: 'this',
     umdNamedDefine: true,
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/browser'),
   },
+}
+
+const node = {
+  target: 'node',
+  output: {
+    path: path.resolve(__dirname, 'dist/node'),
+    filename: 'conwayslife.js',
+    libraryTarget: 'umd',
+    libraryExport: 'default',
+  }
+}
+
+module.exports = (env, argv) => {
+  Object.assign(node, general);
+  Object.assign(browser, general);
+
+  return [node, browser];
 };
