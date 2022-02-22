@@ -3,3 +3,16 @@
     height: 100%;
     margin: 0;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #555555;
+}
+
+#canvasContainer {
+    width: 100vmin;
+    height: 100vmin;
+}
