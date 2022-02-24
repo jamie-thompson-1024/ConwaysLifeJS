@@ -24,6 +24,7 @@ class ConwaysLife
     private _loopInterval?: number | NodeJS.Timer;
     private _lastTickTime: number = performance.now();
     private _lastTickDuration: number = 0;
+    private _doLoop: boolean = false;
     onTick: () => void = () => {};
 
     constructor(options: Options)
@@ -55,6 +56,8 @@ class ConwaysLife
 
     run()
     {
+        this._doLoop = true;
+
         // @ts-ignore
         this._loopInterval = setInterval(() => {
             this._tick();
@@ -63,6 +66,8 @@ class ConwaysLife
 
     pause()
     {
+        this._doLoop = false;
+        
         // @ts-ignore
         clearInterval(this._loopInterval);
     }
@@ -138,13 +143,16 @@ class ConwaysLife
         {
             this._tickDelay = Math.floor(options.tickDelay);
 
-            // reset interval
-            // @ts-ignore
-            clearInterval(this._loopInterval);
-            // @ts-ignore
-            this._loopInterval = setInterval(() => {
-                this._tick();
-            }, this._tickDelay);
+            if(this._doLoop)
+            {
+                // reset interval
+                // @ts-ignore
+                clearInterval(this._loopInterval);
+                // @ts-ignore
+                this._loopInterval = setInterval(() => {
+                    this._tick();
+                }, this._tickDelay);
+            }
         }
 
         this._edgeMode = options.edgeMode ?? this._edgeMode;
@@ -181,13 +189,16 @@ class ConwaysLife
                 {
                     this._tickDelay = Math.floor(value);
 
-                    // reset interval
-                    // @ts-ignore
-                    clearInterval(this._loopInterval);
-                    // @ts-ignore
-                    this._loopInterval = setInterval(() => {
-                        this._tick();
-                    }, this._tickDelay);
+                    if(this._doLoop)
+                    {
+                        // reset interval
+                        // @ts-ignore
+                        clearInterval(this._loopInterval);
+                        // @ts-ignore
+                        this._loopInterval = setInterval(() => {
+                            this._tick();
+                        }, this._tickDelay);
+                    }
                 }
                 break;
         }
@@ -244,6 +255,13 @@ class ConwaysLife
 
     private _tick()
     {
+        if(!this._doLoop)
+        {
+            // @ts-ignore
+            clearInterval(this._loopInterval);
+            return;
+        }
+
         this._lastTickDuration = performance.now() - this._lastTickTime;
         this._lastTickTime = performance.now();
 
@@ -268,6 +286,7 @@ class ConwaysLife
             newGrid[y] = [];
             for(let x = 0; x < this._width; x++)
             {
+                console.log('1');
                 neighbors = 0;
                 
                 /*
@@ -282,6 +301,7 @@ class ConwaysLife
                 // to avoid indexed access when grid[y] is undefined
                 if(y != 0)
                 {
+                    console.log('2a');
                     if(this._grid[y - 1][x - 1] ?? edge)    // top left
                         neighbors++;
                     if(this._grid[y - 1][x] ?? edge)        // top mid
@@ -289,10 +309,12 @@ class ConwaysLife
                     if(this._grid[y - 1][x + 1] ?? edge)    // top right
                         neighbors++;
                 } else {
+                    console.log('2b');
                     if(edge)
                         neighbors += 3;
                 }
 
+                console.log('3');
                 if(this._grid[y][x - 1] ?? edge)            // left
                     neighbors++;
                 if(this._grid[y][x + 1] ?? edge)            // right
@@ -301,6 +323,7 @@ class ConwaysLife
                 // to avoid indexed access when grid[y] is undefined
                 if(y != this._height - 1)
                 {
+                    console.log('4a');
                     if(this._grid[y + 1][x - 1] ?? edge)    // bottom left
                         neighbors++;
                     if(this._grid[y + 1][x] ?? edge)        // bottom mid
@@ -308,10 +331,12 @@ class ConwaysLife
                     if(this._grid[y + 1][x + 1] ?? edge)    // bottom right
                         neighbors++;
                 } else {
+                    console.log('4b');
                     if(edge)
                         neighbors += 3;
                 }
 
+                console.log('5');
                 newGrid[y][x] = 
                     (neighbors === 2 && this._grid[y][x]) || 
                     (neighbors === 3);
