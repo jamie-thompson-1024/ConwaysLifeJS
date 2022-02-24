@@ -140,11 +140,11 @@ class ConwaysLife
 
             // reset interval
             // @ts-ignore
+            clearInterval(this._loopInterval);
+            // @ts-ignore
             this._loopInterval = setInterval(() => {
                 this._tick();
             }, this._tickDelay);
-            // @ts-ignore
-            clearInterval(this._loopInterval);
         }
 
         this._edgeMode = options.edgeMode ?? this._edgeMode;
@@ -183,11 +183,11 @@ class ConwaysLife
 
                     // reset interval
                     // @ts-ignore
+                    clearInterval(this._loopInterval);
+                    // @ts-ignore
                     this._loopInterval = setInterval(() => {
                         this._tick();
                     }, this._tickDelay);
-                    // @ts-ignore
-                    clearInterval(this._loopInterval);
                 }
                 break;
         }
