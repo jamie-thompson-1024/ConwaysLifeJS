@@ -43,6 +43,7 @@ resetButton.addEventListener('click', () => {
     life.reset();
     draw();
 });
+let ageDisplay = document.querySelector('#gameAge');
 
 let container = document.querySelector('#canvasContainer');
 let canvas = document.querySelector('#canvasContainer > canvas');
@@ -52,6 +53,8 @@ resize();
 
 function draw()
 {
+    ageDisplay.innerText = life.age;
+
     let squareWidth = canvas.width / life.width;
     let squareHeight = canvas.height / life.height;
     
