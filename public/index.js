@@ -3,7 +3,7 @@ const life = new ConwaysLife({
     edgeMode: 'filled',
     height: 250,
     width: 250,
-    tickDelay: 100,
+    tickDelay: 500,
 });
 console.log(life);
 
@@ -26,9 +26,23 @@ controlEls['tickDelay'].value = life.tickDelay;
 controlEls['edgeMode'].value = life.edgeMode;
 
 let playButton = document.querySelector('#playButton');
+playButton.addEventListener('click', () => {
+    life.run();
+});
 let pauseButton = document.querySelector('#pauseButton');
+pauseButton.addEventListener('click', () => {
+    life.pause();
+});
 let stepButton = document.querySelector('#stepButton');
+stepButton.addEventListener('click', () => {
+    console.log('step');
+    life.step();
+});
 let resetButton = document.querySelector('#resetButton');
+resetButton.addEventListener('click', () => {
+    life.reset();
+    draw();
+});
 
 let container = document.querySelector('#canvasContainer');
 let canvas = document.querySelector('#canvasContainer > canvas');
@@ -69,10 +83,10 @@ function resize()
         canvas.width = container.clientHeight;
         canvas.height = container.clientHeight;
     }
+    
+    draw();
 }
 
 addEventListener('resize', () => { resize() });
 
 life.onTick = () => { draw() };
-
-life.run();
