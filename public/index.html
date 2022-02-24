@@ -3,12 +3,64 @@
     <head>
         <title>Conways Life</title>
         <link href="index.css" type="text/css" rel="stylesheet">
-        <script src="../dist/browser/ConwaysLife.js"></script>
+        <script src="/browser/ConwaysLife.js"></script>
         <script src="index.js" defer></script>
     </head>
     <body>
+        <div id="controls">
+            <h1>Conways Game of Life</h1>
+            <hr>
+
+            <hr>
+            <form method="dialog">
+                <fieldset>
+                    <legend>Options</legend>
+
+                    <label for="widthInput">
+                        Width:
+                        <input 
+                            type="number" id="widthInput" name="width"
+                            min="1" max="2000" step="1">
+                    </label>
+
+                    <label for="heightInput">
+                        Height:
+                        <input 
+                            type="number" id="heightInput" name="height"
+                            min="1" max="2000" step="1">
+                    </label>
+
+                    <label for="tickDelayInput">
+                        Tick Delay:
+                        <input 
+                            type="number" id="tickDelayInput" name="tickDelay"
+                            min="1" max="10000" step="1">
+                    </label>
+
+                    <label for="edgeModeInput">
+                        Edge Mode:
+                        <select name="edgeMode" id="edgeModeInput">
+                            <option value="empty">Empty</option>
+                            <option value="filled">Filled</option>
+                        </select>
+                    </label>
+
+                    <input type="submit" value="Set">
+                </fieldset>
+            </form>
+            <fieldset>
+                <legend>Controls</legend>
+                <span>Age: <span id="gameAge">0</span></span>
+                <div>
+                    <input type="button" id="playButton" value="Play">
+                    <input type="button" id="pauseButton" value="Pause">
+                    <input type="button" id="stepButton" value="Step">
+                </div>
+                <input type="button" id="resetButton" value="Reset">
+            </fieldset>
+        </div>
         <div id="canvasContainer">
-            <canvas id="canvas"></canvas>
+            <canvas></canvas>
         </div>
     </body>
 </html>

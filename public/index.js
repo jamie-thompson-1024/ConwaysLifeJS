@@ -7,8 +7,31 @@ const life = new ConwaysLife({
 });
 console.log(life);
 
-let container = document.getElementById('canvasContainer');
-let canvas = document.getElementById('canvas');
+
+let controlForm = document.querySelector('#controls > form');
+let controlEls = controlForm.elements;
+
+controlForm.addEventListener('submit', () => {
+    life.setOptions({
+        width: controlEls['width'].value,
+        height: controlEls['height'].value,
+        tickDelay: controlEls['tickDelay'].value,
+        edgeMode: controlEls['edgeMode'].value
+    });
+});
+
+controlEls['width'].value = life.width;
+controlEls['height'].value = life.height;
+controlEls['tickDelay'].value = life.tickDelay;
+controlEls['edgeMode'].value = life.edgeMode;
+
+let playButton = document.querySelector('#playButton');
+let pauseButton = document.querySelector('#pauseButton');
+let stepButton = document.querySelector('#stepButton');
+let resetButton = document.querySelector('#resetButton');
+
+let container = document.querySelector('#canvasContainer');
+let canvas = document.querySelector('#canvasContainer > canvas');
 let ctx = canvas.getContext('2d');
 
 resize();
@@ -36,8 +59,16 @@ function draw()
 
 function resize()
 {
-    canvas.width = container.clientWidth;
-    canvas.height = container.clientHeight;
+    if(container.clientWidth < container.clientHeight)
+    {
+        canvas.width = container.clientWidth;
+        canvas.height = container.clientWidth;
+    }
+    else
+    {
+        canvas.width = container.clientHeight;
+        canvas.height = container.clientHeight;
+    }
 }
 
 addEventListener('resize', () => { resize() });

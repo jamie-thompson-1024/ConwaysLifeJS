@@ -6,13 +6,58 @@
 
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: stretch;
 
     background-color: #555555;
+
+    font-family: monospace;
+    color: #F0F0F0;
 }
 
 #canvasContainer {
-    width: 100vmin;
-    height: 100vmin;
+    flex-grow: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+
+    background-color: #333333;
+
+    width: 15em;
+    padding: 10px;
+}
+
+#controls hr {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+
+    border: none;
+    border-top: 1px solid #BBBBBB;
+}
+
+#controls h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 2em;
+}
+
+#controls fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    border: 1px solid #BBBBBB;
+    border-radius: 5px;
+
+    padding: 5px;
 }
