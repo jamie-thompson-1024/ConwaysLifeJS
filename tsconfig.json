@@ -1,11 +1,14 @@
 {
     "compilerOptions": {
-      "outDir": "./dist/",
+      "outDir": "dist",
+
       "noImplicitAny": true,
       "target": "es6",
       "allowJs": true,
 
       "allowUmdGlobalAccess": true,
+      "declaration": true,
+      "sourceMap": true,
       
       "noImplicitOverride": true,
       "noImplicitReturns": true,
