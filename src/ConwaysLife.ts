@@ -292,7 +292,7 @@ class ConwaysLife
             newGrid[y] = [];
             for(let x = 0; x < this._width; x++)
             {
-                console.log(`${x},${y}: 1`);
+                // console.log(`${x},${y}: 1`);
                 neighbors = 0;
                 
                 /*
@@ -307,7 +307,7 @@ class ConwaysLife
                 // to avoid indexed access when grid[y] is undefined
                 if(y != 0)
                 {
-                    console.log(`${x},${y}: 2a`);
+                    // console.log(`${x},${y}: 2a`);
                     if(this._grid[y - 1][x - 1] ?? edge)    // top left
                         neighbors++;
                     if(this._grid[y - 1][x] ?? edge)        // top mid
@@ -315,12 +315,12 @@ class ConwaysLife
                     if(this._grid[y - 1][x + 1] ?? edge)    // top right
                         neighbors++;
                 } else {
-                    console.log(`${x},${y}: 2b`);
+                    // console.log(`${x},${y}: 2b`);
                     if(edge)
                         neighbors += 3;
                 }
 
-                console.log(`${x},${y}: 3`);
+                // console.log(`${x},${y}: 3`);
                 if(this._grid[y][x - 1] ?? edge)            // left
                     neighbors++;
                 if(this._grid[y][x + 1] ?? edge)            // right
@@ -329,7 +329,7 @@ class ConwaysLife
                 // to avoid indexed access when grid[y] is undefined
                 if(y != this._height - 1)
                 {
-                    console.log(`${x},${y}: 4a`);
+                    // console.log(`${x},${y}: 4a`);
                     if(this._grid[y + 1][x - 1] ?? edge)    // bottom left
                         neighbors++;
                     if(this._grid[y + 1][x] ?? edge)        // bottom mid
@@ -337,12 +337,12 @@ class ConwaysLife
                     if(this._grid[y + 1][x + 1] ?? edge)    // bottom right
                         neighbors++;
                 } else {
-                    console.log(`${x},${y}: 4b`);
+                    // console.log(`${x},${y}: 4b`);
                     if(edge)
                         neighbors += 3;
                 }
 
-                console.log(`${x},${y}: 5`);
+                // console.log(`${x},${y}: 5`);
                 newGrid[y][x] = 
                     (neighbors === 2 && this._grid[y][x]) || 
                     (neighbors === 3);
