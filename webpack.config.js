@@ -18,50 +18,53 @@ const generalConfig = {
   },
 }
 
-const browserConfig = {
-  target: 'web',
-  output: {
-    library: 'ConwaysLife',
-    libraryTarget: 'umd',
-    libraryExport: 'default',
-    globalObject: 'this',
-    umdNamedDefine: true,
-    path: path.resolve(__dirname, 'dist/browser'),
-  },
+const browserOutputConfig = {
+  library: 'ConwaysLife',
+  libraryTarget: 'umd',
+  libraryExport: 'default',
+  globalObject: 'this',
+  umdNamedDefine: true,
+  path: path.resolve(__dirname, 'dist/browser'),
 }
 
-const nodeConfig = {
-  target: 'node',
-  output: {
-    path: path.resolve(__dirname, 'dist/node'),
-    libraryTarget: 'umd',
-    libraryExport: 'default',
-  }
+const nodeOutputConfig = {
+  path: path.resolve(__dirname, 'dist/node'),
+  libraryTarget: 'umd',
+  libraryExport: 'default',
 }
 
 const minConfig = {
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()],
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false
+      })],
   }
 };
 
 module.exports = (env, argv) => {
-  let node = {};
-  Object.assign(node, generalConfig, nodeConfig);
+  // non-min node lib
+  let node = Object.assign({}, generalConfig);
+  node.target = 'node';
+  node.output = Object.assign({}, nodeOutputConfig);
   node.output.filename = 'ConwaysLife.js';
 
-  let nodeMin = {};
-  Object.assign(nodeMin, node, minConfig);
-  node.output.filename = 'ConwaysLife.min.js';
+  // min node lib
+  let nodeMin = Object.assign({}, node, minConfig);
+  nodeMin.output = Object.assign({}, nodeOutputConfig);
+  nodeMin.output.filename = 'ConwaysLife.min.js';
 
-  let browser = {};
-  Object.assign(browser, generalConfig, browserConfig);
-  node.output.filename = 'ConwaysLife.js';
+  // non-min browser lib
+  let browser = Object.assign({}, generalConfig);
+  browser.target = 'web';
+  browser.output = Object.assign({}, browserOutputConfig);
+  browser.output.filename = 'ConwaysLife.js';
 
-  let browserMin = {};
-  Object.assign(browserMin, browser, minConfig);
-  node.output.filename = 'ConwaysLife.min.js';
+  // min browser lib
+  let browserMin = Object.assign({}, browser, minConfig);
+  browserMin.output = Object.assign({}, browserOutputConfig);
+  browserMin.output.filename = 'ConwaysLife.min.js';
 
   return [node, nodeMin, browser, browserMin];
 };
