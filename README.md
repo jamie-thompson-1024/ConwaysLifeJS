@@ -90,7 +90,7 @@ Game state and options can be read via these properties:
 - `.initialGrid`: type `boolean[][]` readonly. starting grid state
 - `.age`: type `number` readonly. ticks made since last reset
 - `.onTick`: type `() => void`. function called after game tick
-- `.lastTickDuration`: type `number`. time taken between start of last 2 ticks in ms. 
+- `.lastTickDuration`: type `number`. time taken to complete last in ms. 
 
 ## Options
 

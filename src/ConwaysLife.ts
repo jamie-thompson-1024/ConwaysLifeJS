@@ -268,7 +268,6 @@ class ConwaysLife
             return;
         }
 
-        this._lastTickDuration = performance.now() - this._lastTickTime;
         this._lastTickTime = performance.now();
 
         this._age++;
@@ -351,6 +350,8 @@ class ConwaysLife
 
         this._grid = newGrid;
 
+        this._lastTickDuration = performance.now() - this._lastTickTime;
+        
         this.onTick();
     }
 }
