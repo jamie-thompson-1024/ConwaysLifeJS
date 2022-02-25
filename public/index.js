@@ -43,7 +43,9 @@ resetButton.addEventListener('click', () => {
     life.reset();
     draw();
 });
+
 let ageDisplay = document.querySelector('#gameAge');
+let tickTimeDisplay = document.querySelector('#tickTime');
 
 let container = document.querySelector('#canvasContainer');
 let canvas = document.querySelector('#canvasContainer > canvas');
@@ -54,6 +56,7 @@ resize();
 function draw()
 {
     ageDisplay.innerText = life.age;
+    tickTimeDisplay.innerText = life.lastTickDuration;
 
     let squareWidth = canvas.width / life.width;
     let squareHeight = canvas.height / life.height;
