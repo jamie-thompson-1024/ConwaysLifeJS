@@ -61,3 +61,25 @@ body {
 
     padding: 5px;
 }
+
+#controls fieldset > label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+#controls fieldset > label > * {
+    flex-grow: 1;
+}
+
+.spaceCenterFill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.spaceCenterFill > * {
+    flex-grow: 1;
+}

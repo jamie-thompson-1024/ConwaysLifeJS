@@ -3,7 +3,7 @@ const life = new ConwaysLife({
     edgeMode: 'filled',
     height: 250,
     width: 250,
-    tickDelay: 500,
+    tickDelay: 100,
 });
 console.log(life);
 
@@ -56,7 +56,7 @@ resize();
 function draw()
 {
     ageDisplay.innerText = life.age;
-    tickTimeDisplay.innerText = life.lastTickDuration;
+    tickTimeDisplay.innerText = Math.floor(life.lastTickDuration);
 
     let squareWidth = canvas.width / life.width;
     let squareHeight = canvas.height / life.height;
