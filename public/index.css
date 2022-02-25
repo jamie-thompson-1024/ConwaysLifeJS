@@ -15,6 +15,11 @@ body {
     color: #F0F0F0;
 }
 
+body p {
+    font-size: 1.2em;
+    margin: 3px 0 3px 0;
+}
+
 #canvasContainer {
     flex-grow: 1;
     
@@ -28,12 +33,37 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 
     background-color: #333333;
 
-    width: 15em;
+    overflow-y: auto;
+
+    width: 20em;
     padding: 10px;
+}
+
+#controls ul {
+    margin: 2px 0;
+    padding-left: 1.3em;
+}
+
+#controls ul li:not(:last-child) {
+    margin-bottom: 3px;
+}
+
+#controls details {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#controls details summary {
+    width: max-content;
+}
+
+#controls details[open] summary {
+    padding-bottom: 3px;
+    border-bottom: 1px solid #AAAAAA;
 }
 
 #controls hr {
@@ -82,4 +112,21 @@ body {
 
 .spaceCenterFill > * {
     flex-grow: 1;
+}
+
+#gameStatsTable {
+    text-align: center;
+    border-spacing: 0;
+}
+
+#gameStatsTable td {
+    margin: 0;
+}
+
+#gameStatsTable tr {
+    margin: 0;
+}
+
+#gameStatsTable tr td:not(:first-child), th:not(:first-child){
+    border-left: 1px solid #BBBBBB;
 }

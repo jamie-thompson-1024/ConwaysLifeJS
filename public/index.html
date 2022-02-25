@@ -10,7 +10,25 @@
         <div id="controls">
             <h1>Conways Game of Life</h1>
             <hr>
-
+            <details open>
+                <summary>About</summary>
+                <p>
+                    John Conway's Game of Life is a well know cellular automaton algorithm. 
+                    It demonstraits complex systems emerging from a simple set of rules applied to a grid.
+                </p>
+            </details>
+            <details>
+                <summary>Rules</summary>
+                <p>
+                    Rules:
+                    <ul>
+                        <li>A live cell with less than 2 neighbors dies</li>
+                        <li>A live cell with 2-3 neighbors survives</li>
+                        <li>A live cell with more than 3 neighbots dies</li>
+                        <li>A dead cell with 3 neighbors becomes a live cell</li>
+                    </ul>
+                </p>
+            </details>
             <hr>
             <form method="dialog">
                 <fieldset>
@@ -50,10 +68,20 @@
             </form>
             <fieldset>
                 <legend>Controls</legend>
-                <span>
-                    Age: <span id="gameAge">~</span> | 
-                    Tick Time: <span id="tickTime">~</span>ms
-                </span>
+                <table id="gameStatsTable">
+                    <thead>
+                        <tr>
+                            <th>Age</th>
+                            <th>Tick Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span id="gameAge">~</span></td>
+                            <td><span id="tickTime">~</span>ms</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <div class="spaceCenterFill">
                     <input type="button" id="playButton" value="Play">
                     <input type="button" id="pauseButton" value="Pause">
