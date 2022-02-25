@@ -2,9 +2,9 @@
   "name": "conwaylifejs",
   "version": "1.0.0",
   "description": "JavaScript / Typescript module implimenting Conways game of life.",
-  "main": "dist/browser/conwayslife.js",
-  "module": "dist/node/conwayslife.js",
-  "types": "dist/src/ConwaysLife.d.ts",
+  "main": "dist/browser/ConwaysLife.js",
+  "module": "dist/node/ConwaysLife.js",
+  "types": "src/ConwaysLife.d.ts",
   "scripts": {
     "start": "node index.js",
     "build": "npx webpack",
