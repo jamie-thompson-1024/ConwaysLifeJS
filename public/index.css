@@ -20,6 +20,10 @@ body p {
     margin: 3px 0 3px 0;
 }
 
+body li {
+    font-size: 1.1em;
+}
+
 #canvasContainer {
     flex-grow: 1;
     
