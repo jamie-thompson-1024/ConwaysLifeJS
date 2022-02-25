@@ -1,6 +1,7 @@
 const path = require('path');
+const TerserPlugin = require("terser-webpack-plugin");
 
-const general = {
+const generalConfig = {
   mode: 'development',
   entry: './src/ConwaysLife.ts',
   module: {
@@ -17,10 +18,9 @@ const general = {
   },
 }
 
-const browser = {
+const browserConfig = {
   target: 'web',
   output: {
-    filename: 'ConwaysLife.js',
     library: 'ConwaysLife',
     libraryTarget: 'umd',
     libraryExport: 'default',
@@ -30,21 +30,38 @@ const browser = {
   },
 }
 
-const node = {
+const nodeConfig = {
   target: 'node',
   output: {
     path: path.resolve(__dirname, 'dist/node'),
-    filename: 'ConwaysLife.js',
     libraryTarget: 'umd',
     libraryExport: 'default',
   }
 }
 
+const minConfig = {
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  }
+};
+
 module.exports = (env, argv) => {
+  let node = {};
+  Object.assign(node, generalConfig, nodeConfig);
+  node.output.filename = 'ConwaysLife.js';
 
+  let nodeMin = {};
+  Object.assign(nodeMin, node, minConfig);
+  node.output.filename = 'ConwaysLife.min.js';
 
-  Object.assign(node, general);
-  Object.assign(browser, general);
+  let browser = {};
+  Object.assign(browser, generalConfig, browserConfig);
+  node.output.filename = 'ConwaysLife.js';
 
-  return [node, browser];
+  let browserMin = {};
+  Object.assign(browserMin, browser, minConfig);
+  node.output.filename = 'ConwaysLife.min.js';
+
+  return [node, nodeMin, browser, browserMin];
 };
