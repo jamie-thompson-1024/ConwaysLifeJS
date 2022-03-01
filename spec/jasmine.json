@@ -1,10 +1,11 @@
 {
-  "srcDir": "dist/browser",
+  "srcDir": "./",
   "srcFiles": [
-    "ConwaysLife.js"
+    "dist/browser/ConwaysLife.js",
+    "spec/HelperFunction.js"
   ],
   "specDir": "spec",
   "specFiles": [
-    "*.js"
+    "ConfigTest.js", "SimulationTest.js"
   ]
 }
