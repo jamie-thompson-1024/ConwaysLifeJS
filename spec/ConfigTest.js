@@ -91,6 +91,20 @@ describe('config test', () => {
                     });
                 });
             });
-        })
-    })
+        });
+    });
+
+    describe('grid', () => {
+        describe('generation', () => {
+
+        });
+
+        describe('resizing', () => {
+
+        });
+
+        describe('manipulation', () => {
+
+        });
+    });
 });
