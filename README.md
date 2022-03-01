@@ -8,6 +8,8 @@ JavaScript / Typescript module implementing Conways game of life.
 - [Methods](#Methods)
 - [Properties](#Properties)
 - [Options](#Options)
+- [Grid Resizing](#Grid&#32;Resizing)
+- [Pattern Placement](#Pattern&#32;Placement)
 
 ## Usage:
 
