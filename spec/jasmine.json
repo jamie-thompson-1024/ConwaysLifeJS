@@ -2,10 +2,10 @@
   "srcDir": "./",
   "srcFiles": [
     "dist/browser/ConwaysLife.js",
-    "spec/HelperFunction.js"
+    "spec/HelperFunctions.js"
   ],
   "specDir": "spec",
   "specFiles": [
-    "ConfigTest.js", "SimulationTest.js"
+    "ConfigTests.js"
   ]
 }
