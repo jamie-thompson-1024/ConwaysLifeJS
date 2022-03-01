@@ -122,6 +122,16 @@ class ConwaysLife
         }
     }
 
+    setCell(col: number, row: number, state: boolean)
+    {
+        if(col >= this._width || col < 0)
+            return;
+        if(row >= this._height || row < 0)
+            return;
+        
+        this._grid[row][col] = !!state;
+    }
+
     setInitial()
     {
         for(let y = 0; y < this._height; y++)

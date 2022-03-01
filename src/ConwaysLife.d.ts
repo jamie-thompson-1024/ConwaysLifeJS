@@ -37,6 +37,7 @@ declare class ConwaysLife {
     reset(): void;
     step(): void;
     place(structure: boolean[][], col: number, row: number): void;
+    setCell(col: number, row: number, state: boolean): void;
     setInitial(): void;
     resetInitial(): void;
     setOptions(options: Options): void;
