@@ -98,5 +98,5 @@ These are the options available that change how the simulation behaves:
 
 - `width`: type `number`. width of simulation grid. must be larger than 0, non-int values will be floored. **default: `100`**
 - `height`: type `number`. height of simulation grid. must be larger than 0, non-int values will be floored. **default: `100`**
-- `tickDelay`: type `number`. set time delay between ticks when running simulation. must be positive. **default: `500`**
+- `tickDelay`: type `number`. set time delay between ticks when running simulation. must be larger than 0. **default: `500`**
 - `edgeMode`: type `EdgeMode` | `'empty' | 'filled'`. set how the edge of the simulation behaves. **default: `'empty'`**
