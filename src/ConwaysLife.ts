@@ -1,8 +1,22 @@
 
 
 type EdgeMode = /*'wrap' |*/ 'empty' | 'filled';
+const EdgeModeValues: EdgeMode[] = [
+    'empty','filled'
+];
+function IsValidEdgeMode(edgeMode?: EdgeMode)
+{
+    return (EdgeModeValues as (EdgeMode | undefined)[]).includes(edgeMode);
+}
 
 type OptionKey = 'width' | 'height' | 'tickDelay' | 'edgeMode';
+const OptionKeyValues: OptionKey[] = [
+    'edgeMode','height','tickDelay','width'
+];
+function IsValidOptionKey(optionKey?: OptionKey)
+{
+    return (OptionKeyValues as (OptionKey | undefined)[]).includes(optionKey);
+}
 
 interface Options
 {
@@ -36,9 +50,10 @@ class ConwaysLife
             this._height = Math.floor(options.height);
 
         if(options.tickDelay && options.tickDelay > 0)
-            this._tickDelay = Math.floor(options.tickDelay);
+            this._tickDelay = options.tickDelay;
 
-        this._edgeMode = options.edgeMode ?? this._edgeMode;
+        if(IsValidEdgeMode(options.edgeMode))
+            this._edgeMode = options.edgeMode as EdgeMode;
 
         this._resetInitialGrid();
         this._resetGrid();
@@ -141,7 +156,7 @@ class ConwaysLife
 
         if(options.tickDelay && options.tickDelay > 0)
         {
-            this._tickDelay = Math.floor(options.tickDelay);
+            this._tickDelay = options.tickDelay;
 
             if(this._doLoop)
             {
@@ -155,7 +170,8 @@ class ConwaysLife
             }
         }
 
-        this._edgeMode = options.edgeMode ?? this._edgeMode;
+        if(IsValidEdgeMode(options.edgeMode))
+            this._edgeMode = options.edgeMode as EdgeMode;
 
         if(doResize)
         {
@@ -182,12 +198,13 @@ class ConwaysLife
                 }
                 break;
             case 'edgeMode':
-                this._edgeMode = value ?? this._edgeMode;
+                if(IsValidEdgeMode(value))
+                    this._edgeMode = value as EdgeMode;
                 break;
             case 'tickDelay':
                 if(value && value > 0)
                 {
-                    this._tickDelay = Math.floor(value);
+                    this._tickDelay = value;
 
                     if(this._doLoop)
                     {
@@ -357,6 +374,11 @@ class ConwaysLife
 }
 
 export default ConwaysLife;
+export {
+    ConwaysLife,
+    OptionKeyValues, EdgeModeValues,
+    IsValidEdgeMode, IsValidOptionKey
+}
 export type {
     Options, EdgeMode, OptionKey
 };

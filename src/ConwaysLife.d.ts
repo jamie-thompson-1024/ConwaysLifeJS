@@ -1,5 +1,9 @@
 declare type EdgeMode = /*'wrap' |*/ 'empty' | 'filled';
+declare const EdgeModeValues: EdgeMode[];
+declare function IsValidEdgeMode(edgeMode?: EdgeMode): boolean;
 declare type OptionKey = 'width' | 'height' | 'tickDelay' | 'edgeMode';
+declare const OptionKeyValues: OptionKey[];
+declare function IsValidOptionKey(optionKey?: OptionKey): boolean;
 interface Options {
     width?: number;
     height?: number;
@@ -43,4 +47,5 @@ declare class ConwaysLife {
     private _tick;
 }
 export default ConwaysLife;
+export { ConwaysLife, OptionKeyValues, EdgeModeValues, IsValidEdgeMode, IsValidOptionKey };
 export type { Options, EdgeMode, OptionKey };
