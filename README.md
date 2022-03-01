@@ -100,3 +100,13 @@ These are the options available that change how the simulation behaves:
 - `height`: type `number`. height of simulation grid. must be larger than 0, non-int values will be floored. **default: `100`**
 - `tickDelay`: type `number`. set time delay between ticks when running simulation. must be larger than 0. **default: `500`**
 - `edgeMode`: type `EdgeMode` | `'empty' | 'filled'`. set how the edge of the simulation behaves. **default: `'empty'`**
+
+Incase required there are imports for 
+arrays of valid keys, and union types, as well as 
+validator function for them.
+
+- `OptionKeyValues`: type `OptionKey[]`. Array of possible option keys.
+- `IsValidOptionKey`: type `(optionKey?: OptionKey) => boolean`. Function to check validity of option key value.
+
+- `EdgeModeValues`: type `EdgeMode[]`. Array of possible edge modes.
+- `IsValidEdgeMode`: type `(optionKey?: EdgeMode) => boolean`. Function to check validity of edge mode.
