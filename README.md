@@ -1,6 +1,6 @@
 # ConwaysLifeJS
 
-JavaScript / Typescript module implimenting Conways game of life.
+JavaScript / Typescript module implementing Conways game of life.
 
 ## Contents:
 
