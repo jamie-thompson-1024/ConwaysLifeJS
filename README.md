@@ -9,7 +9,9 @@ JavaScript / Typescript module implementing Conways game of life.
 - [Properties](#Properties)
 - [Options](#Options)
 - [Grid Resizing](#Grid%20Resizing)
-- [Pattern Placement](#Pattern%20Placement)
+- [Grid Manipulation](#Grid%20Manipulation)
+    - [Pattern Placement](#Pattern%20Placement)
+    - [Modifying Cells](#Modifying%20Cells)
 
 ## Usage:
 
@@ -214,6 +216,28 @@ would give equivelent to:
 */
 ```
 
-## Pattern Placement
+## Grid Manipulation
 
+The live grid can be modified via these 2 methods.
 
+- `.place(structure: boolean[][], col: number, row: number)`
+- `.setCell(col: number, row: number, state: boolean)`
+
+Since these dont call the onTick function if the grid 
+is displayed on screen and via the onTick function changes from
+these methods wont show up till the next render call.
+
+### Pattern Placement
+
+The `.place(structure: boolean[][], col: number, row: number)` 
+method can be used to place arbitrary patterns on the grid.
+This method takes an arbitrary 2D boolean array as input for the pattern.
+The position this pattern is placed on the grid is given by the `col` and `row` arguments, 
+representing where the top left corner of the pattern will be placed.
+
+### Modifying Cells
+
+The `.setCell(col: number, row: number, state: boolean)`
+method can be used to set the state of individual cells on the grid.
+Where `col` and `row` arguments are the location to be changed. 
+The `state` argument is the state the cell will be set too.
