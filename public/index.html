@@ -30,7 +30,7 @@
                 </p>
             </details>
             <hr>
-            <form method="dialog">
+            <form id="OptionsForm" method="dialog">
                 <fieldset>
                     <legend>Options</legend>
 
@@ -89,6 +89,31 @@
                 </div>
                 <input type="button" id="resetButton" value="Reset">
             </fieldset>
+            <form id="cellManipulationForm" method="dialog">
+                <fieldset>
+                    <legend>Cell Manipulation</legend>
+                    <label for="cell-pattern">
+                        pattern: 
+                        <select id="cell-pattern" name="pattern">
+                            <option value="Square 5x5">Square 5x5</option>
+                            <option value="Glider NE">Glider NE</option>
+                            <option value="Glider SE">Glider SE</option>
+                            <option value="Glider SW">Glider SW</option>
+                            <option value="Glider NW">Glider NW</option>
+                            <option value="none" selected>None Selected</option>
+                        </select>
+                    </label>
+                    <div id="patternPreview"></div>
+                    <label for="cell-placeMode">
+                        on click:
+                        <select id="cell-placeMode" name="mode">
+                            <option value="toggle">Toggle Cell</option>
+                            <option value="place" selected>Place Pattern</option>
+                            <option value="off">Nothing</option>
+                        </select>
+                    </label>
+                </fieldset>
+            </form>
         </div>
         <div id="canvasContainer">
             <canvas></canvas>
