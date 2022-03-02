@@ -25,7 +25,8 @@ the simulation behave.
 let life = new ConwaysLife();
 
 life.onTick = () => {
-    // put code here that will run after every simulation tick i.e. a draw call if the results are being rendered to screen
+    // put code here that will run after every simulation 
+    // tick i.e. a draw call if the results are being rendered to screen
 };
 
 // begin simulation
@@ -43,7 +44,8 @@ let life = new ConwaysLife({
 });
 
 life.onTick = () => {
-    // put code here that will run after every simulation tick i.e. a draw call if the results are being rendered to screen
+    // put code here that will run after every simulation 
+    // tick i.e. a draw call if the results are being rendered to screen
 };
 
 // begin simulation
@@ -57,7 +59,8 @@ manually like this:**
 let life = new ConwaysLife();
 
 life.onTick = () => {
-    // put code here that will run after every simulation tick i.e. a draw call if the results are being rendered to screen
+    // put code here that will run after every simulation 
+    // tick i.e. a draw call if the results are being rendered to screen
 };
 
 // set interval to run every 500ms
