@@ -23,7 +23,7 @@ declare class ConwaysLife {
     private _lastTickDuration;
     private _doLoop;
     onTick: () => void;
-    constructor(options: Options);
+    constructor(options?: Options);
     get grid(): boolean[][];
     get width(): number;
     get height(): number;

@@ -41,7 +41,7 @@ class ConwaysLife
     private _doLoop: boolean = false;
     onTick: () => void = () => {};
 
-    constructor(options: Options)
+    constructor(options: Options = {})
     {
         if(options.width && options.width > 0)
             this._width = Math.floor(options.width);
