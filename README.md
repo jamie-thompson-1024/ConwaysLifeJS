@@ -21,6 +21,22 @@ the simulation behave.
 
 **Basic usage goes as follows:**
 
+browser version imported into environment as script like this
+
+```html
+<head>
+    <script src="ConwaysLife.js"></script>
+    <!-- or if using minimised version -->
+    <script src="ConwaysLife.min.js"></script>
+</head>
+```
+
+node version import into environment as CommonJS module like this 
+
+```javascript
+const ConwaysLife = require('conwaylifejs');
+```
+
 ```javascript
 let life = new ConwaysLife();
 
