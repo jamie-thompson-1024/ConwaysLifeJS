@@ -72,5 +72,10 @@ module.exports = (env, argv) => {
   browserMin.output = Object.assign({}, browserOutputConfig);
   browserMin.output.filename = 'ConwaysLife.min.js';
 
-  return [node, nodeMin, browser, browserMin];
+  // min browser demo page
+  let browserMinDemo = Object.assign({}, browserMin);
+  browserMinDemo.output = Object.assign({}, browserMin.output);
+  browserMinDemo.output.path = path.resolve(__dirname, 'public/lib');
+
+  return [node, nodeMin, browser, browserMin, browserMinDemo];
 };
